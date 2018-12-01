@@ -6,14 +6,17 @@ class ContactInfo extends React.Component {
             <header className="major">
                 <h2>Cómo contactarnos</h2>
             </header>
-            <p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                <ul className="contact">
-                    <li className="fa-envelope-o"><a href="#mmm">elcarnet@elcarnet.com.uy</a></li>
-                    <li className="fa-phone">2901 2985</li>
-                    <li className="fa-home">Ejido 1291<br />
-                    Montevideo, Uruguay</li>
-                </ul>
-            </section>;
+            <ul className="contact">
+                <li className="fa-clock-o" title="Horario de atención" alt="Horario de atención">
+                Lunes a Viernes de 9 a 18:30 horas
+                Sábados de 9 a 12 horas. (horario continuo)
+                </li>
+                <li className="fa-envelope-o" title="Email" alt="Email"><a href="#mmm">elcarnet@elcarnet.com.uy</a></li>
+                <li className="fa-phone" title="Teléfono" alt="Teléfono">2901 2985</li>
+                <li className="fa-home" title="Dirección" alt="Dirección">Ejido 1291 (entre San José y Soriano, frente al Correo de la IM)<br />
+                Montevideo, Uruguay</li>
+            </ul>
+        </section>;
     }
 }
 
