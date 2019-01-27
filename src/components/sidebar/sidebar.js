@@ -5,8 +5,7 @@ import ContactInfo from '../contact/contact-info';
 import { Link } from "react-router-dom";
 
 
-
-export default class Sidebar extends React.Component {
+class Sidebar extends React.Component {
     constructor (props) {
         super(props);
 
@@ -23,7 +22,7 @@ export default class Sidebar extends React.Component {
     render() {
         return <div id="sidebar" className={(this.state.isToggleOn ? 'inactive' : '')}>
             <div className="inner">
-                <Navigation></Navigation>
+                <Navigation action={() => this.handleClick()}></Navigation>
                 <ContactInfo></ContactInfo>
                 <Footer></Footer>
             </div>
@@ -32,3 +31,9 @@ export default class Sidebar extends React.Component {
         </div>;
     }
 }
+/*
+Sidebar.propTypes = {
+    categories: PropTypes.array.isRequired
+}
+*/
+export default Sidebar;

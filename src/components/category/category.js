@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 
 class Category extends React.Component {
@@ -26,6 +28,7 @@ class Category extends React.Component {
             })
         }
         this.products = aux;
+        //this.products = this.props.products;
     }
     render() {
         return <div className="posts">
@@ -50,4 +53,17 @@ class Category extends React.Component {
     }
 }
 
-export default Category;
+
+function mapStateToProps(state, ownProps) {
+    return {
+        categories: state.bulkData.categories,
+        products: state.bulkData.products
+    };
+}
+
+Category.propTypes = {
+    categories: PropTypes.array.isRequired,
+    products: PropTypes.array.isRequired
+};
+
+export default connect(mapStateToProps)(Category);
