@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 class Category extends React.Component {
     constructor(props){
         super(props);
+        debugger;
         this.props = props;
 
         let aux = [];
@@ -27,24 +28,31 @@ class Category extends React.Component {
                 ]
             })
         }
-        this.products = aux;
+        this.products = [];
         //this.products = this.props.products;
+        console.log(this.props);
+    }
+    componentWillUpdate() {
+        debugger;
     }
     render() {
         return <div className="posts">
-            {this.products.map(product => {
+            {this.props.products.map(product => {
                 const name = product.name;
-                return <article>
-                    <Link to={product.url} alt={name} title={name}>
-                        <img src="https://elcarnet.com.uy/system/application/views/fs/472/98d/47298dc4976fbf6757ddc24f0d9c731f.jpg" alt={name} title={name} />
+                const url = `/categoria/billeteras-en-pvc/producto/${product.productUrl}`;
+                //const imgSrc = `${product.photoDTO.photo100x100}`;
+                const imgSrc = `${product.photoDTO.photo240x240}`;
+                return <article key={product.productId}>
+                    <Link to={url} alt={name} title={name}>
+                        <img src={imgSrc} alt={name} title={name} />
                     </Link>
                     <h3>{name}</h3>
                     <p>
-                    {product.description}
+                    {product.desc}
                     </p>
                     <ul className="actions">
                         <li>
-                            <Link to={product.url} alt={product.name} title={product.name} className="button">Ver más</Link>
+                            <Link to={url} alt={name} title={name} className="button">Ver más</Link>
                         </li>
                     </ul>
                 </article>

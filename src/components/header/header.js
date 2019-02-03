@@ -11,11 +11,9 @@ export default class Header extends React.Component {
 
             <ul className="icons">
                 <li>
-                    <Link to="#" className="icon fa-facebook" alt="Síguenos en Facebook" title="Síguenos en Facebook"><span className="label">Facebook</span></Link>
+                    <a href="https://www.facebook.com/elcarnetplastico/" className="icon fa-facebook" alt="Síguenos en Facebook" title="Síguenos en Facebook" target="_blank" rel="noopener noreferrer"><span className="label">Facebook</span></a>
                 </li>
-                <li>
-                    <Link to="#" className="icon fa-instagram" alt="Síguenos en Instagram" title="Síguenos en Instagram"><span className="label">Instagram</span></Link>
-                </li>
+                { (false) ? <li ><Link to="#" className="icon fa-instagram" alt="Síguenos en Instagram" title="Síguenos en Instagram"><span className="label">Instagram</span></Link> </li> : '' }
             </ul>
         </header>;
     }

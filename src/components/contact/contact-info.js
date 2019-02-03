@@ -20,6 +20,12 @@ class ContactInfo extends React.Component {
                 title="Ver Ejido 1291 en Google Maps" alt="Ver Ejido 1291 en Google Maps" target="_blank" rel="noopener noreferrer">Ejido 1291 (entre San José y Soriano, frente al Correo de la IM)</a>
                 <br />
                 Montevideo, Uruguay</li>
+                <li className="fa-facebook" title="Dirección" alt="Dirección">
+                    <a href="https://www.facebook.com/elcarnetplastico/" alt="Síguenos en Facebook" title="Síguenos en Facebook" target="_blank" rel="noopener noreferrer">Síguenos en Facebook</a>
+                </li>
+                <li className="fa-qrcode" title="Escanea código QR de la tarjeta de contacto" alt="Escanea código QR de la tarjeta de contacto">
+                    <img src="images/contact_QR.png" alt="Tarjeta contacto QR El Carnet Plástico" title="Tarjeta contacto QR El Carnet Plástico" height="190" width="190" />
+                </li>
             </ul>
         </section>;
     }

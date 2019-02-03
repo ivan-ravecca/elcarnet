@@ -9,7 +9,7 @@ class Categories extends React.Component {
     render() {
         return <section>
             <header className="major">
-                <h2>Categorías {this.props.match.params.categoryId}</h2>
+                <h2>Categoría: {this.props.match.params.categoryId}</h2>
             </header>
             <Category />
         </section>;
