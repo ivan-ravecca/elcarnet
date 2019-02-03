@@ -24,7 +24,7 @@ class ContactInfo extends React.Component {
                     <a href="https://www.facebook.com/elcarnetplastico/" alt="Síguenos en Facebook" title="Síguenos en Facebook" target="_blank" rel="noopener noreferrer">Síguenos en Facebook</a>
                 </li>
                 <li className="fa-qrcode" title="Escanea código QR de la tarjeta de contacto" alt="Escanea código QR de la tarjeta de contacto">
-                    <img src="images/contact_QR.png" alt="Tarjeta contacto QR El Carnet Plástico" title="Tarjeta contacto QR El Carnet Plástico" height="190" width="190" />
+                    <img src="/images/contact_QR.png" alt="Tarjeta contacto QR El Carnet Plástico" title="Tarjeta contacto QR El Carnet Plástico" height="190" width="190" />
                 </li>
             </ul>
         </section>;

@@ -34,7 +34,8 @@ class Navigation extends React.Component {
                     <span className={'opener ' + (this.state.isToggleOn ? 'active' : '')} onClick={() => this.handleClick()}>Productos</span>
                     <ul>
                         {this.props.categories.map((category) => {
-                            const text = `${category.categoryName} ${category.total > 0 ? category.total : ''}`;
+                            if(category.total === 0) { return ''; }
+                            const text = `${category.categoryName} ${category.total > 0 ? `(${category.total})` : ''}`;
                             return <li key={category.categoryId}>
                                     <Link to={'/categoria/' + category.categoryUrl} alt={text} title={text} onClick={()=>{this.callBack()}}>{text}</Link>
                                 </li>
