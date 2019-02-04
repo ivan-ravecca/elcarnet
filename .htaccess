@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} ^system.*
+RewriteRule ^(.*)$ index.html?/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.html|robots\.txt|public|sitemap\.xml)
+
+RewriteRule ^(.*)$ index.html?/$1 [L]
+</IfModule>

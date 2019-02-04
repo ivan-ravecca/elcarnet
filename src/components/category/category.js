@@ -7,10 +7,12 @@ import {connect} from 'react-redux';
 class Category extends React.Component {
     constructor(props){
         super(props);
+        this.props = props;
     }
+
     createProduct(product) {
         const name = product.name;
-        const url = `/categoria/billeteras-en-pvc/producto/${product.productUrl}`;
+        const url = `/categoria/${this.props.categoryUrl}/producto/${product.productUrl}`;
         const imgSrc = `${product.photoDTO.photo240x240}`;
         return <article key={product.productId}>
             <Link to={url} alt={name} title={name}>
@@ -27,9 +29,15 @@ class Category extends React.Component {
             </ul>
         </article>
     }
+
     render() {
+        const category = this.props.categories.find(category => {
+            return category.categoryUrl === this.props.categoryUrl;
+        });
+        if(category === undefined) return '';
+
         return <div className="posts">
-            {this.props.products.map(product => {
+            {category.products.map(product => {
                 return this.createProduct(product);
             })}
         </div>;
@@ -39,14 +47,12 @@ class Category extends React.Component {
 
 function mapStateToProps(state, ownProps) {
     return {
-        categories: state.bulkData.categories,
-        products: state.bulkData.products
+        categories: state.bulkData.categories
     };
 }
 
 Category.propTypes = {
-    categories: PropTypes.array.isRequired,
-    products: PropTypes.array.isRequired
+    categories: PropTypes.array.isRequired
 };
 
 export default connect(mapStateToProps)(Category);

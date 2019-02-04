@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import Category from '../../components/category/category';
 
 class Categories extends React.Component {
@@ -7,13 +9,27 @@ class Categories extends React.Component {
         this.props = props;
     }
     render() {
+        const selectedCategory = this.props.categories.find(category => {
+            return category.categoryUrl === this.props.match.params.categoryId;
+        });
+        if (selectedCategory === undefined) return '';
         return <section>
             <header className="major">
-                <h2>Categoría: {this.props.match.params.categoryId}</h2>
+                <h2>Categoría: {selectedCategory.categoryName}</h2>
             </header>
-            <Category />
+            <Category categoryUrl={selectedCategory.categoryUrl} />
         </section>;
     }
 }
 
-export default Categories;
+function mapStateToProps(state, ownProps) {
+    return {
+        categories: state.bulkData.categories
+    };
+}
+
+Categories.propTypes = {
+    categories: PropTypes.array.isRequired
+};
+
+export default connect(mapStateToProps)(Categories);

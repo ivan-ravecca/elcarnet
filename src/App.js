@@ -4,12 +4,8 @@ import Main from './containers/main/main';
 import Sidebar from './components/sidebar/sidebar';
 import { BrowserRouter as Router } from "react-router-dom";
 import {bindActionCreators} from 'redux';
-
-
 import {connect} from 'react-redux';
 import * as globalActions from './actions/global-actions';
-
-
 
 import './App.scss';
 
@@ -19,8 +15,7 @@ class App extends Component {
 
     this.state = {
       BULK_DATA: {
-          categories: [],
-          products: []
+          categories: []
         }
     };
   }

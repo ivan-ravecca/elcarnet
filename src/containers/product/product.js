@@ -19,12 +19,12 @@ class Product extends React.Component {
         </div>
     }
 
-    createProduct(product, related) {
+    createProduct(product, category, related) {
         if(product === undefined) return '';
-        debugger;
+
         const name = product.name;
         return <section>
-            <h2 title={name}>{name} - {this.props.match.params.productId}</h2>
+            <h2 title={name}>{name}</h2>
             <Sharing ></Sharing>
             <div className="col-6 col-12-medium">
                 <p>{product.desc}</p>
@@ -36,19 +36,19 @@ class Product extends React.Component {
                 </div>
             </div>
             
-            {this.createRelatedProducts(related)}
+            {this.createRelatedProducts(related, category)}
         </section>
     }
 
-    createRelatedProducts(products) {
-        if(products === undefined) return '';
+    createRelatedProducts(products, category) {
+        if(products.length === 0) return '';
         return <span>
             <header className="major">
                 <h3>Otros productos relacionados</h3>
             </header>
             <div className="posts">
                 {products.map(product => {
-                    const url = `/categoria/billeteras-en-pvc/producto/${product.name}`;
+                    const url = `/categoria/${category.categoryUrl}/producto/${product.productUrl}`;
                     return <article key={product.productId}>
                         <Link to={url} alt={product.name} title={product.name} className="">
                             <img src={product.photoDTO.photo100x100} alt={product.name} title={product.name} />
@@ -60,20 +60,33 @@ class Product extends React.Component {
         </span>
     }
     render() {
-        const product = this.props.products[0];
-        const related = this.props.products.splice(1, 3);
-        return this.createProduct(product, related);
+        let selectedProduct;
+        let related = [];
+        const category = this.props.categories.find(category => {
+            return category.categoryUrl === this.props.match.params.categoryId;
+        });
+
+        if (category === undefined) return '';
+        category.products.forEach(product => {
+            if(product.productUrl === this.props.match.params.productId) {
+                selectedProduct = product;
+            } else {
+                related.push(product);
+            }
+        });
+
+        return this.createProduct(selectedProduct, category, related);
     }
 }
 
 function mapStateToProps(state, ownProps) {
     return {
-        products: state.bulkData.products
+        categories: state.bulkData.categories
     };
 }
 
 Product.propTypes = {
-    products: PropTypes.array.isRequired
+    categories: PropTypes.array.isRequired
 };
 
 export default connect(mapStateToProps)(Product);
