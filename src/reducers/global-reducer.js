@@ -4,7 +4,6 @@ const initialStore = {
 };
 
 const GlobalReducer = (state = initialStore, action) => {
-    debugger;
     switch(action.type) {
         case 'LOAD_BULK_DATA':
             return action.result

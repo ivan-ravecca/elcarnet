@@ -13,6 +13,7 @@ class ContactForm extends React.Component {
             email: '',
             message: ''
         };
+        this.title = this.props.title || 'Por medio de nuestro formulario';
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -26,6 +27,9 @@ class ContactForm extends React.Component {
             email: '',
             message: ''
         });
+        if(this.props.reset) {
+            this.props.reset();
+        }
     }
 
     validateInput() {
@@ -64,12 +68,13 @@ class ContactForm extends React.Component {
             ref: window.location.href
         });
         this.resetState();
+        alert("El mensaje ha sido enviado");
     }
 
     render() {
         return <section>
             <header className="major">
-                <h3>Por medio de nuestro formulario</h3>
+                <h3>{this.title}</h3>
             </header>
             <form onSubmit={this.handleSubmit}>
                 <div className="row gtr-uniform">
@@ -83,14 +88,14 @@ class ContactForm extends React.Component {
                         <input type="email" name="email" placeholder="Email" required value={this.state.email} onChange={this.handleChange}/>
                     </div>
                     <div className="col-12">
-                        <textarea name="message" placeholder="Escríbanos su mensaje" required rows="6" value={this.state.message} onChange={this.handleChange}></textarea>
+                        <textarea name="message" placeholder="Mensaje" required rows="6" value={this.state.message} onChange={this.handleChange}></textarea>
                     </div>
                     <div className="col-12">
                         <ul className="actions">
                             <li>
                                 <button value="Enviar" alt="Enviar" title="Enviar" className="primary" onClick={this.handleSubmit}>Enviar</button>
                             </li>
-                            <li><input type="reset" value="Limpiar" alt="Limpiar" title="Limpiar" onClick={this.resetState} /></li>
+                            <li><input type="reset" value="Cancelar" alt="Cancelar" title="Cancelar" onClick={this.resetState} /></li>
                         </ul>
                     </div>
                 </div>
