@@ -1,6 +1,12 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 
 class About extends React.Component {
+    componentDidMount() {
+        ReactGA.pageview(this.props.location.pathname);
+        document.title = 'El Carnet Plástico - La Empresa';
+    }
+
     render() {
         return <section>
             <header className="major">

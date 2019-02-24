@@ -5,8 +5,14 @@ import './index.scss';
 import App from './App';
 import {Provider} from 'react-redux';
 import configureStore from './configureStore';
+import ReactGA from 'react-ga';
 
 import * as serviceWorker from './serviceWorker';
+
+ReactGA.initialize('UA-1570570-2', {
+    debug: false,
+    titleCase: false
+  });
 
 ReactDOM.render(
     <Provider store={configureStore()}>

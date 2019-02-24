@@ -3,11 +3,20 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import ReactGA from 'react-ga';
 
 class Product extends React.Component {
     constructor(props){
         super(props);
         this.props = props;
+    }
+
+    componentDidMount() {
+        ReactGA.pageview(this.props.location.pathname);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        ReactGA.pageview(nextProps.location.pathname);
     }
 
     createProductImage(name, image) {
@@ -23,6 +32,7 @@ class Product extends React.Component {
         if(product === undefined) return '';
 
         const name = product.name;
+        document.title = `El Carnet Plástico - ${name}`;
         return <section>
             <h2 title={name}>{name}</h2>
             <Sharing ></Sharing>

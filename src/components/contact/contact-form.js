@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as globalActions from '../../actions/global-actions';
+import ReactGA from 'react-ga';
 
 class ContactForm extends React.Component {
     constructor(props) {
@@ -20,7 +21,18 @@ class ContactForm extends React.Component {
         this.resetState = this.resetState.bind(this);
     }
 
-    resetState() {
+    componentDidMount() {
+        ReactGA.modalview(`MODAL-${window.location.pathname}`);
+    }
+
+    resetState(isUserInteraction=false) {
+        if(isUserInteraction) {
+            ReactGA.event({
+                category: 'User-Interaction',
+                action: 'Click',
+                label: 'Email Form CANCEL'
+            });
+        }
         this.setState({
             name: '',
             phone: '',
@@ -68,6 +80,11 @@ class ContactForm extends React.Component {
             ref: window.location.href
         });
         this.resetState();
+        ReactGA.event({
+            category: 'User-Interaction',
+            action: 'Click',
+            label: 'Email Form Sent'
+        });
         alert("El mensaje ha sido enviado");
     }
 
@@ -95,7 +112,7 @@ class ContactForm extends React.Component {
                             <li>
                                 <button value="Enviar" alt="Enviar" title="Enviar" className="primary" onClick={this.handleSubmit}>Enviar</button>
                             </li>
-                            <li><input type="reset" value="Cancelar" alt="Cancelar" title="Cancelar" onClick={this.resetState} /></li>
+                            <li><input type="reset" value="Cancelar" alt="Cancelar" title="Cancelar" onClick={() => {this.resetState(true);}} /></li>
                         </ul>
                     </div>
                 </div>
