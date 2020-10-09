@@ -18,8 +18,7 @@ class ContactInfo extends React.Component {
                             label: 'Horario'
                         });
                     }}>
-                Lunes a Viernes de 9 a 18:30 horas
-                Sábados de 9 a 12 horas. (horario continuo)
+                Lunes a Viernes de 9:00 a 19:00 (horario continuo)
                 </li>
                 <li className="fa-envelope-o" title="Contáctenos por email" alt="Contáctenos por email">
                     <ReactGA.OutboundLink
