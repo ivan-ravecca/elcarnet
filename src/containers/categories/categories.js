@@ -26,10 +26,12 @@ class Categories extends React.Component {
     componentDidMount() {
         ReactGA.pageview(this.props.location.pathname);
         this.updateTitleName(this.props.categories, this.props.match.params.categoryId);
+        window.scrollTo(0, 0);
     }
 
     componentWillUpdate(nextProps) {
         this.updateTitleName(nextProps.categories, nextProps.match.params.categoryId);
+        window.scrollTo(0, 0);
     }
 
     render() {

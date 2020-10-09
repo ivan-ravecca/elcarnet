@@ -59,3 +59,24 @@
 	@import 'layout/banner';
 	@import 'layout/footer';
 	@import 'layout/menu';
+
+	#whatsapp.fa-whatsapp::before { color: #25D366}
+	.promo {
+		p b {
+			color: red;
+			font-weight: bolder;
+			text-transform: uppercase;
+		}
+		.whatsappIcon {
+			vertical-align: middle;
+			width: 28px;
+			height: 28px;
+			margin: 0 3px;
+		}
+		.whatsappName {
+			color: #25D366;
+			font-family: monospace;
+			font-weight: bolder;
+			vertical-align: middle;
+		}
+	}

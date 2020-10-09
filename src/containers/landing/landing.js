@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import ReactGA from 'react-ga';
 
+const whatsappLink = `https://wa.me/59898534013?text=${encodeURI('Hola, quisiera consultarles por')}&lang=es`;
 class Landing extends React.Component {
     componentDidMount() {
         ReactGA.pageview(this.props.location.pathname);
         document.title = 'El Carnet Plástico - Sellos, Grabados, Solaperos, Plastificados, Fotos';
+        window.scrollTo(0, 0);
     }
     render() {
         return <section id="banner">
@@ -15,6 +17,18 @@ class Landing extends React.Component {
                 </header>
                 <h2>Aquí usted encontrará...</h2>
                     <ul>
+                        <li className="promo">
+                            <h3>Debido a los acontecimientos, brindamos un servicio especial</h3>
+                            <p>Puede hacer sus consultas y pedidos a través de 
+                            <ReactGA.OutboundLink
+                                eventLabel="Chat por whatsapp"
+                                to={whatsappLink}
+                                target="_blank">
+                                    <img src="images/whatsapp-logo-5.png" alt="Whatsapp El Carnet Plástico 098 534 013" title="Whatsapp El Carnet Plástico 098 534 013" className="whatsappIcon"/>
+                                    <span className="whatsappName">Whatsapp</span>
+                            </ReactGA.OutboundLink></p>
+                            <p><b>Consulte por nuestros envíos sin cargo.</b></p>
+                        </li>
                         <li>
                             <h3>
                                 <Link to="/categoria/oficina" alt="Papelería" title="Papelería" >Papelería</Link>
@@ -60,7 +74,7 @@ class Landing extends React.Component {
                     </ul>
             </div>
             <span className="image object">
-                <img src="images/local_2000.jpg" alt="" />
+                <img src="images/local_2020.jpg" alt="" />
             </span>
         </section>;
     }

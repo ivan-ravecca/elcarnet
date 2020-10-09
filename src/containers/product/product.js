@@ -13,10 +13,12 @@ class Product extends React.Component {
 
     componentDidMount() {
         ReactGA.pageview(this.props.location.pathname);
+        window.scrollTo(0, 0);
     }
 
     componentWillReceiveProps(nextProps) {
         ReactGA.pageview(nextProps.location.pathname);
+        window.scrollTo(0, 0);
     }
 
     createProductImage(name, image) {

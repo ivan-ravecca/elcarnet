@@ -5,6 +5,7 @@ class About extends React.Component {
     componentDidMount() {
         ReactGA.pageview(this.props.location.pathname);
         document.title = 'El Carnet Plástico - La Empresa';
+        window.scrollTo(0, 0);
     }
 
     render() {

@@ -7,6 +7,7 @@ class Contact extends React.Component {
     componentDidMount() {
         ReactGA.pageview(this.props.location.pathname);
         document.title = 'El Carnet Plástico - Formulario de contacto';
+        window.scrollTo(0, 0);
     }
     render() {
         return <section>

@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 
+// const whatsappLink = `https://web.whatsapp.com/send?phone=598098534013&text=${encodeURI('Hola, quisiera consultarles por')}`;
+const whatsappLink = `https://wa.me/59898534013?text=${encodeURI('Hola, quisiera consultarles por')}&lang=es`;
+
 class ContactInfo extends React.Component {
     render() {
         return <section>
@@ -30,6 +33,14 @@ class ContactInfo extends React.Component {
                         eventLabel="Llámenos al 2901 2985"
                         to="tel:29012985">
                         2901 2985
+                    </ReactGA.OutboundLink>
+                </li>
+                <li className="fa-whatsapp" id="whatsapp" title="Chatea con nosotros por Whatsapp" alt="Chatea con nosotros por Whatsapp">
+                    <ReactGA.OutboundLink
+                        eventLabel="Chat por whatsapp"
+                        to={whatsappLink}
+                        target="_blank">
+                        Whatsapp 098 534 013                        
                     </ReactGA.OutboundLink>
                 </li>
                 <li className="fa-home" title="Dirección" alt="Dirección">

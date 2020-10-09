@@ -26,7 +26,7 @@ class Sidebar extends React.Component {
                 <ContactInfo></ContactInfo>
                 <Footer></Footer>
             </div>
-            <Link alt="Abrir/Cerrar panel" title="Abrir/Cerrar panel" className="toggle" to="#" onClick={() => this.handleClick()}>&nbsp;</Link>
+            <Link alt="Abrir/Cerrar panel" title="Abrir/Cerrar panel" className={(this.state.isToggleOn ? 'toggle closed' : 'toggle open')} to="#" onClick={() => this.handleClick()}>&nbsp;</Link>
 
         </div>;
     }

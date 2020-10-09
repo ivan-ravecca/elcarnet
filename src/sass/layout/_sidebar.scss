@@ -89,7 +89,6 @@
 			border: 0;
 			display: block;
 			height: 7.5em;
-			left: _size(sidebar-width);
 			line-height: 7.5em;
 			outline: 0;
 			overflow: hidden;
@@ -99,6 +98,14 @@
 			top: 0;
 			width: 6em;
 			z-index: _misc(z-index-base);
+			position: fixed;
+
+			&.open {
+				left: _size(sidebar-width);
+			}
+			&.closed {
+				left: 0px;
+			}
 
 			&:before {
 				content: '\f0c9';
